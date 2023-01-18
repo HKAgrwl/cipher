@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -8,6 +9,7 @@ const path = require('path');
 
 const PORT = 8000;
 
+app.use(cors())
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
