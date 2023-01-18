@@ -7,8 +7,10 @@ const io = new Server(server);
 
 const PORT = 8000;
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
   });
   
   io.on('connection', (socket) => {
